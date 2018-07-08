@@ -25,20 +25,14 @@ g_imageData = false;
  */
 function processImageData(imageData) {
     // Process image pixels
-    var offsetGreenX = 4 * g_offsetGX;
-    var offsetGreenY = (4 * g_offsetGY) * img.width;
-    var offsetBlueX = 4 * g_offsetBX;
-    var offsetBlueY = (4 * g_offsetBY) * img.width;
-
+    var offsetG = (4 * g_offsetGX) + (4 * g_offsetGY * img.width) + 1;
+    var offsetB = (4 * g_offsetBX) + (4 * g_offsetBY * img.width) + 2;
     for (var y=0; y<img.height; y++) {
         var stride = y * img.width;
         for (var x=0; x<img.width; x++) {
-
-            // Green channel
-            imageData.data[4 * (x + stride) + 1] = imageData.data[4 * (x + stride) + 1 + (offsetGreenX + offsetGreenY)];
-
-            // Blue channel
-            imageData.data[4 * (x + stride) + 2] = imageData.data[4 * (x + stride) + 2 + (offsetBlueX) + offsetBlueY];
+            var index = 4 * (x + stride);
+            imageData.data[index + 1] = imageData.data[index + offsetG];
+            imageData.data[index + 2] = imageData.data[index + offsetB];
         }
     }
 
