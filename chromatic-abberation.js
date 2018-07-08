@@ -25,8 +25,8 @@ g_imageData = false;
  */
 function processImageData(imageData) {
     // Process image pixels
-    var offsetG = (4 * g_offsetGX) + (4 * g_offsetGY * img.width) + 1;
-    var offsetB = (4 * g_offsetBX) + (4 * g_offsetBY * img.width) + 2;
+    var offsetG = (4 * (img.width - g_offsetGX)) + (4 * g_offsetGY * img.width) + 1;
+    var offsetB = (4 * (img.width - g_offsetBX)) + (4 * g_offsetBY * img.width) + 2;
     for (var y=0; y<img.height; y++) {
         var stride = y * img.width;
         for (var x=0; x<img.width; x++) {
