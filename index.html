@@ -1,0 +1,26 @@
+<!-- <div>
+    <h2>Upload</h2>
+    <input type="file" id="file">
+</div> -->
+
+<div>
+    <h3>Upload Image:</h3>
+    <input type='file' id='img-upload' size='65' name='img-upload' accept="image/*" title="Upload Image"/>
+    <h3>Green:</h3>
+    <b>X Offset</b>
+    <input id="offset-gx" type="range" min="0" max="512" value="8" step="1" oninput="changeOffsetGX(this.value)">
+    <b>Y Offset</b>
+    <input id="offset-gy" type="range" min="0" max="512" value="8" step="1" oninput="changeOffsetGY(this.value)">
+    <br>
+    <h3>Blue:</h3>
+    <b>X Offset</b>
+    <input id="offset-bx" type="range" min="0" max="512" value="8" step="1" oninput="changeOffsetBX(this.value)">
+    <b>Y Offset</b>
+    <input id="offset-by" type="range" min="0" max="512" value="8" step="1" oninput="changeOffsetBY(this.value)">
+    <br>
+</div>
+<img id="img" src='default.png' style="display:none;">
+<canvas id="canvas"></canvas>
+<script src="chromatic-abberation.js"></script>
+<!--
+<input type='file' name='img' size='65' id='uploadimage' /> -->
